@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+{% extends 'base.html'%}
+{% block content %}
+<h2> COMPARSION RESULTS </h2>
+
+<div class="container">
+    <h1>Upload Results</h1>
+    {% if user_file_name %}
+        <p><strong>Uploaded File:</strong> {{ user_file_name }}</p>
+    {% else %}
+        <p>No file was uploaded.</p>
+    {% endif %}
+    <a href="/">Go Back</a>
+</div>
+    
+
+
+
+    
+
+
+
+
+{% endblock %}
+<body>
+    
+</body>
+</html>

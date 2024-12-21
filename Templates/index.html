@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparsion tool</title>
+    <link rel="stylesheet" href="{% static 'css/stylesheet,css' %}">
+</head>
+<body>
+    <style>
+        body{
+            background-color: lightskyblue  ;
+            
+        }
+        
+        p{
+            font-size: large;
+            font-family: cursive;
+            font-weight: bold;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        
+        
+        h1{
+            background-color:black;
+            font: 300;
+            color: black;
+            font-style: italic;
+            text-decoration: double;
+            font-weight: bolder;
+            color: darkgoldenrod;
+        };
+        
+        .filediv{
+            align-items: center;
+            vertical-align: middle;
+            font-weight: bold;
+            font-style: oblique;
+            text-align: center;
+            color: red;
+            
+        
+        
+        }
+        
+        
+        
+        .file-input-container {
+          text-align: center;
+          vertical-align: middle;
+          align-items: center;
+          
+          
+            }
+        
+        input[type="file"] {
+          padding: 60px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          background-color:white;
+          cursor: pointer;
+          vertical-align: middle;
+          margin-left: 600px;
+          margin-top: 100px;
+          border:5px solid red;
+          text-align: center;
+          margin-bottom: 100px;
+          
+          
+          
+            }
+        
+            button {
+                padding: 10px 20px;
+                font-size: 18px;
+                font-weight: bold;
+                color: #fff;
+                background-color: #007bff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+              }
+          
+              button:hover {
+                background-color: #0056b3;
+                box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+              }
+          
+              button:active {
+                background-color: #004085;
+                box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+              }
+        #buttondiv{
+            vertical-align: middle;
+            text-align: center;
+            align-items: center;
+        };
+    
+    
+        
+        
+    </style>
+    
+    <h1>UPLOAD AND GET REVIEW</h1>
+    <br>
+    <p> <h2>Upload your TDD file here</h2></p>
+    <br>
+    <div id="filediv">
+        <form method= "post" name="file" enctype="multipart/form-data" action="{% url 'uploadfile'%}" role="form">
+            {% csrf_token %}
+            
+            <input  class ="form-control" type='file' name="name" id="name" placeholder="File" required>
+            
+        </form>
+    </div>
+    
+
+
+
+    <form action="output" method='POST' >
+
+    {% csrf_token %}
+    <div id="buttondiv">
+        <button type="submit">Compare Files</button>
+    </div>
+    </form>
+    <script>
+        alert("HELLO USERS ");
+        document.getElementById('file').addEventListener('change', function () {
+            const fileName = this.files[0].name;
+            alert(`You selected: ${fileName}`);
+        });
+    </script>
+
+    
+    
+</body>
+</html>
